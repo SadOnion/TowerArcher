@@ -24,6 +24,7 @@ public class Arrow : MonoBehaviour
     {
         GameObject arrow = Instantiate(baseArrowPrefab, transform.position, transform.parent.rotation);
         Rigidbody2D body = arrow.GetComponent<Rigidbody2D>();
+        arrow.GetComponent<SpriteRenderer>().sprite = arrowProperties.sprite;
         Vector3 vec = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
         Vector2 forceVector = new Vector2(vec.x,vec. y);
         forceVector.Normalize();

@@ -25,6 +25,7 @@ public class Bow : MonoBehaviour
         currentBow = GameManager.Instance.player.bow;
         sr = GetComponent<SpriteRenderer>();
         currentArrow = GetComponentInChildren<Arrow>();
+        arrow.GetComponent<SpriteRenderer>().sprite = currentArrow.arrowProperties.sprite;
     }
 
     // Update is called once per frame

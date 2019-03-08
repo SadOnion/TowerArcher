@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 35e36784b25fd5c45b93f4bf3ec9e80f, type: 3}
-  m_Name: baseArrow
+  m_Name: defaultArrow
   m_EditorClassIdentifier: 
-  name: base
-  sprite: {fileID: 21300000, guid: 73daad4841882b14f9065947f21aa65b, type: 3}
+  name: New Arrow
+  sprite: {fileID: 21300000, guid: acd76b4d44e95cd46b4b10580d14b250, type: 3}
   hasSpecialAbility: 0
