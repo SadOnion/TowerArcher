@@ -98,6 +98,7 @@ public class Bow : MonoBehaviour
     {
         
         stretchValue += Time.deltaTime * currentBow.fireRate;
+        if (stretchValue > valueToStretch) stretchValue = valueToStretch;
         if (stretchPrecetage >= 33) isStretched = true;
         else isStretched = false;
     }
