@@ -92,7 +92,7 @@ public class Bow : MonoBehaviour
     {
         currentArrow.Shoot(stretchPrecetage/100);
         stretchValue = 0;
-        
+        AudioManager.instance.Play("Sample");
     }
     private void Stretch()
     {
