@@ -30,5 +30,6 @@ public class Arrow : MonoBehaviour
         forceVector.Normalize();
         Vector2 force = forceVector * bowWhichShootThisArrow.currentBow.force*precetage;
         body.AddForce(force);
+
     }
 }

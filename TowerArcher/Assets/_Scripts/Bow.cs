@@ -92,12 +92,13 @@ public class Bow : MonoBehaviour
     {
         currentArrow.Shoot(stretchPrecetage/100);
         stretchValue = 0;
-        
+        AudioManager.instance.Play("Sample");
     }
     private void Stretch()
     {
         
         stretchValue += Time.deltaTime * currentBow.fireRate;
+        if (stretchValue > valueToStretch) stretchValue = valueToStretch;
         if (stretchPrecetage >= 33) isStretched = true;
         else isStretched = false;
     }
