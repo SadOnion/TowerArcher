@@ -27,6 +27,10 @@ public class ArrowHead : MonoBehaviour
             damageable.TakeDamage(player.bow.dmg);
             
         }
-        Destroy(gameObject);
+        Destroy(gameObject, 3);
+        spriteRenderer.enabled = false;
+        GetComponent<CapsuleCollider2D>().enabled = false;
+        GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+        
     }
 }

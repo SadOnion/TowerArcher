@@ -13,6 +13,7 @@ public class Bow : MonoBehaviour
     private float stretchPrecetage=0;
     private SpriteRenderer sr;
     private Arrow currentArrow;
+    private string shotSound = "Sample";
     public delegate void ShootMethod();
     ShootMethod Shoot;
     private const int lMax = 130, lMin = -130;
@@ -95,13 +96,13 @@ public class Bow : MonoBehaviour
     {
         currentArrow.TripleShot(stretchPrecetage / 100);
         stretchValue = 0;
-        AudioManager.instance.Play("Sample");
+        AudioManager.instance.Play(shotSound);
     }
     private void BaseShot()
     {
         currentArrow.Shoot(stretchPrecetage/100);
         stretchValue = 0;
-        AudioManager.instance.Play("Sample");
+        AudioManager.instance.Play(shotSound);
     }
     private void Stretch()
     {
