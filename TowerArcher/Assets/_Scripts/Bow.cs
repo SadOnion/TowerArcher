@@ -13,6 +13,8 @@ public class Bow : MonoBehaviour
     private float stretchPrecetage=0;
     private SpriteRenderer sr;
     private Arrow currentArrow;
+    public delegate void ShootMethod();
+    ShootMethod Shoot;
     private const int lMax = 130, lMin = -130;
 
     public void SetBow(BowProperties newBow)
@@ -22,6 +24,7 @@ public class Bow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Shoot = TripleShot;
         currentBow = GameManager.Instance.player.bow;
         sr = GetComponent<SpriteRenderer>();
         currentArrow = GetComponentInChildren<Arrow>();
@@ -88,7 +91,13 @@ public class Bow : MonoBehaviour
             arrow.transform.position = points[2].position;
         }
     }
-    private void Shoot()
+    private void TripleShot()
+    {
+        currentArrow.TripleShot(stretchPrecetage / 100);
+        stretchValue = 0;
+        AudioManager.instance.Play("Sample");
+    }
+    private void BaseShot()
     {
         currentArrow.Shoot(stretchPrecetage/100);
         stretchValue = 0;
@@ -101,6 +110,17 @@ public class Bow : MonoBehaviour
         if (stretchValue > valueToStretch) stretchValue = valueToStretch;
         if (stretchPrecetage >= 33) isStretched = true;
         else isStretched = false;
+    }
+    public void ChangeMode()
+    {
+        if(Shoot == TripleShot)
+        {
+            Shoot = BaseShot;
+        }
+        else
+        {
+            Shoot = TripleShot;
+        }
     }
     
 }

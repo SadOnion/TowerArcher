@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Archer : MonoBehaviour
 {
-
+    public Arrow arrow;
     public BowProperties bow;
     SpriteRenderer sr;
 

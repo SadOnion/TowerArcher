@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3624394214049616399}
   - component: {fileID: 1359227784435073161}
   - component: {fileID: 2247275504725551662}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: baseArrowPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
