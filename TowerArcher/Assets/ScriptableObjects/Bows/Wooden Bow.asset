@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: New Bow
   dmg: 0
-  fireRate: 1
-  force: 0
+  fireRate: 0.49
+  force: 1000
   sprites:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 6a855aa091bd7a14a881a6b56c3761c8, type: 3}
+  - {fileID: 21300002, guid: 6a855aa091bd7a14a881a6b56c3761c8, type: 3}
+  - {fileID: 21300004, guid: 6a855aa091bd7a14a881a6b56c3761c8, type: 3}
+  - {fileID: 21300006, guid: 6a855aa091bd7a14a881a6b56c3761c8, type: 3}
