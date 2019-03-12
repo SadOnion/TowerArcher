@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Bow : MonoBehaviour
 {
@@ -16,16 +17,18 @@ public class Bow : MonoBehaviour
     private string shotSound = "Sample";
     public delegate void ShootMethod();
     ShootMethod Shoot;
+    public event EventHandler ShotFire;
     private const int lMax = 130, lMin = -130;
 
     public void SetBow(BowProperties newBow)
     {
         currentBow = newBow;
+        
     }
     // Start is called before the first frame update
     void Start()
     {
-        Shoot = TripleShot;
+        Shoot = BaseShot;
         currentBow = GameManager.Instance.player.bow;
         sr = GetComponent<SpriteRenderer>();
         currentArrow = GetComponentInChildren<Arrow>();
@@ -97,12 +100,14 @@ public class Bow : MonoBehaviour
         currentArrow.TripleShot(stretchPrecetage / 100);
         stretchValue = 0;
         AudioManager.instance.Play(shotSound);
+        ShotFired();
     }
     private void BaseShot()
     {
         currentArrow.Shoot(stretchPrecetage/100);
         stretchValue = 0;
         AudioManager.instance.Play(shotSound);
+        ShotFired();
     }
     private void Stretch()
     {
@@ -123,5 +128,11 @@ public class Bow : MonoBehaviour
             Shoot = TripleShot;
         }
     }
-    
+    protected virtual void ShotFired()
+    {
+        if (ShotFire != null)
+        {
+            ShotFire(this,EventArgs.Empty);
+        }
+    }
 }

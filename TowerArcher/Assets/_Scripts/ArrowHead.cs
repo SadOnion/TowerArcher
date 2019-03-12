@@ -5,21 +5,20 @@ using UnityEngine;
 public class ArrowHead : MonoBehaviour
 {
 
-    Archer player;
-    SpriteRenderer spriteRenderer;
-    ArrowProperties properties;
+    protected Archer player;
+    protected SpriteRenderer spriteRenderer;
+    protected ArrowProperties properties;
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
         player = GameManager.Instance.player;
         spriteRenderer = GetComponent<SpriteRenderer>();
         properties = player.arrow.arrowProperties;
         spriteRenderer.sprite = properties.sprite;
-        
-        
+
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
         IDamageable damageable = collision.gameObject.GetComponent<IDamageable>();
         if (damageable != null)
@@ -27,10 +26,7 @@ public class ArrowHead : MonoBehaviour
             damageable.TakeDamage(player.bow.dmg);
             
         }
-        Destroy(gameObject, 3);
-        spriteRenderer.enabled = false;
-        GetComponent<CapsuleCollider2D>().enabled = false;
-        GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
-        
+        Destroy(gameObject);
+
     }
 }
