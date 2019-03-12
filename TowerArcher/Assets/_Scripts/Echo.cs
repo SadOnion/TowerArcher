@@ -20,6 +20,7 @@ public class Echo : MonoBehaviour
         time -= Time.deltaTime;
         if (time <= 0)
         {
+            
             trail.emitting = !trail.emitting;
             time = timeBtwSpawn;
         }

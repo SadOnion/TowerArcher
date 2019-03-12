@@ -11,6 +11,7 @@ public class BowProperties : ScriptableObject
     public int dmg = 0;
     [Range(0, 3)]
     public float fireRate = 1;
+    [Range(0,1000)]
     public int force;
     public Sprite[] sprites = new Sprite[4];
     
