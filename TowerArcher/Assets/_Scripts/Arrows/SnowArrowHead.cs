@@ -2,9 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FrostArrowHead : ArrowHead
+public class SnowArrowHead : ArrowHead
 {
-    public int duration=5;
+    [Range(0,100)]
+    public int frezeChance=5;
+    [Range(0, 100)]
+    public int slowChance = 50;
+    public int duration = 5;
 
     protected override void OnCollisionEnter2D(Collision2D collision)
     {
@@ -13,10 +17,20 @@ public class FrostArrowHead : ArrowHead
         if (freezable != null)
         {
             damageable.TakeDamage(player.bow.dmg);
-            freezable.Freze(duration);
+            int rand = Random.Range(1, 100);
+            if(rand < slowChance)
+            {
+                freezable.SlownDown(duration);
+            }
+            if(rand < frezeChance)
+            {
+                freezable.Freze(duration);
+            }
 
         }
         Destroy(gameObject);
 
     }
+
+
 }

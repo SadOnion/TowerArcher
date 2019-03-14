@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: "Muj Pierwszyu \u0141uk"
   m_EditorClassIdentifier: 
   name: New Bow
-  dmg: 0
+  dmg: 5
   fireRate: 1
-  force: 0
+  force: 1000
   sprites:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 398a1360448652b45ae0cd0f7e5ea71d, type: 3}
+  - {fileID: 21300002, guid: 398a1360448652b45ae0cd0f7e5ea71d, type: 3}
+  - {fileID: 21300004, guid: 398a1360448652b45ae0cd0f7e5ea71d, type: 3}
+  - {fileID: 21300006, guid: 398a1360448652b45ae0cd0f7e5ea71d, type: 3}

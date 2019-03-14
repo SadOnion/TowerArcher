@@ -15,7 +15,7 @@ public class WalkingEnemy : Enemy
     protected override void Update()
     {
         base.Update();
-        body.velocity = Vector2.right * speed * Time.deltaTime;
+        body.velocity = Vector2.right * currentSpeed * Time.deltaTime;
     }
     
 }

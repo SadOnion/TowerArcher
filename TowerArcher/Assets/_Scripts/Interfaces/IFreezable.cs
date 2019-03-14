@@ -4,6 +4,6 @@ using UnityEngine;
 
 public interface IFreezable 
 {
-    void SlownDown();
-    void Freze();
+    void SlownDown(int duration);
+    void Freze(int duration);
 }
