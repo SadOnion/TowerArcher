@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Enemy : MonoBehaviour,IDamageable
+public abstract class Enemy : MonoBehaviour,IDamageable,IFreezable
 {
 
     public int hp;
@@ -13,6 +13,9 @@ public abstract class Enemy : MonoBehaviour,IDamageable
     public ParticleSystem blood;
     protected Rigidbody2D body;
     protected Animator anim;
+    protected SpriteRenderer[] sprites;
+    protected bool isSlowed;
+    protected bool isFrozen;
     public virtual void TakeDamage(int amount)
     {
         Instantiate(blood, transform.position, Quaternion.identity);
@@ -25,6 +28,7 @@ public abstract class Enemy : MonoBehaviour,IDamageable
     {
         body = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        sprites = GetComponentsInChildren<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -52,5 +56,33 @@ public abstract class Enemy : MonoBehaviour,IDamageable
         Destroy(gameObject);
     }
     protected abstract void Attack();
-    
+
+    public void SlownDown()
+    {
+        if(!isSlowed)
+        {
+            speed *= 0.5f;
+            isSlowed = true;
+            foreach (var sr in sprites)
+            {
+                sr.color = Color.cyan;
+            }
+
+        }
+        
+    }
+
+    public void Freze()
+    {
+        if (!isFrozen)
+        {
+            speed = 0;
+            isFrozen = true;
+            foreach (var sr in sprites)
+            {
+                sr.color = Color.blue;
+            }
+        }
+        
+    }
 }

@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WalkingEnemy : Enemy
+public class WalkingEnemy : Enemy 
 {
+    
     protected override void Attack()
     {
         
@@ -18,3 +19,4 @@ public class WalkingEnemy : Enemy
     }
     
 }
+
