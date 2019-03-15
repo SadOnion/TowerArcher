@@ -2,20 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Enemy : MonoBehaviour,IDamageable,IFreezable
+public abstract class Enemy : MonoBehaviour,IDamageable,IFreezable,IDmgOverTime
 {
 
     public int hp;
     public int destruction;
     public float speed;
-    protected int frozenBonus;
+    protected int frozenBonus=1;
     protected bool isSlowed;
     protected bool isFrozen;
+    protected bool dmgOverTime;
     public ParticleSystem blood;
     protected Rigidbody2D body;
     protected Animator anim;
     protected SpriteRenderer[] sprites;
     protected float currentSpeed;
+    protected Archer player;
     public virtual void TakeDamage(int amount)
     {
         Instantiate(blood, transform.position, Quaternion.identity);
@@ -30,7 +32,7 @@ public abstract class Enemy : MonoBehaviour,IDamageable,IFreezable
         anim = GetComponent<Animator>();
         sprites = GetComponentsInChildren<SpriteRenderer>();
         currentSpeed = speed;
-       
+        player = GameManager.Instance.player;
     }
 
     // Update is called once per frame
@@ -89,5 +91,23 @@ public abstract class Enemy : MonoBehaviour,IDamageable,IFreezable
         }
         
         
+    }
+
+    public void DmgOverTime(int duration)
+    {
+        if (!dmgOverTime)
+        {
+            StartCoroutine(TimedDmg(duration));
+        }
+    }
+    private IEnumerator TimedDmg(int duration)
+    {
+        dmgOverTime = true;
+        for (int i = 0; i < duration; i++)
+        {
+            TakeDamage(1);
+            yield return new WaitForSeconds(1);
+        }
+        dmgOverTime = false;
     }
 }
