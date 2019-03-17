@@ -2,15 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AccidArrowHead : ArrowHead,ISkill
+public class AccidArrowHead : ArrowHead
 {
     public int duration=5;
     
 
-    public void UseSkill()
-    {
-        StartCoroutine(base.ChangeArrows(duration));
-    }
+    
 
     protected override void OnCollisionEnter2D(Collision2D collision)
     {

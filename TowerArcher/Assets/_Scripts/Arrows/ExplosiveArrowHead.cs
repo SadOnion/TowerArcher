@@ -1,40 +1,14 @@
 ﻿using System;
 using UnityEngine;
 
-public class ExplosiveArrowHead : ArrowHead,ISkill
+public class ExplosiveArrowHead : ArrowHead
 {
     public float explosionRadius = 1f;
     public int extraDmg = 5;
     public ParticleSystem explosion;
-    private bool isUsed;
-    private GameObject oldArrow;
-    public void UseSkill()
-    {
-        if (player == null) {
-
-            player = GameManager.Instance.player;
-            player.bowObject.ShotFire += SkillUsed;
-        }
-        oldArrow = player.arrow.baseArrowPrefab;
-        
-        player.arrow.baseArrowPrefab = arrowPrefab;
-        
-        isUsed = true;
-    }
-    private void SkillUsed(object sender,EventArgs e)
-    {
-        if (isUsed)
-        {
-            player.arrow.baseArrowPrefab = oldArrow;
-            
-            isUsed = false;
-        }
-    }
-    protected override void  Start()
-    {
-        base.Start();
-        player.bowObject.ShotFire += SkillUsed;
-    }
+    
+    
+    
 
     protected override void OnCollisionEnter2D(Collision2D collision)
     {
