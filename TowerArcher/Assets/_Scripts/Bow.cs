@@ -133,6 +133,7 @@ public class Bow : MonoBehaviour
         if (ShotFire != null)
         {
             ShotFire(this,EventArgs.Empty);
+            Debug.Log("f");
         }
     }
 }

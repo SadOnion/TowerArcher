@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ee2471aa047fcb4daaa599e752699ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  arrowPrefab: {fileID: 8954518155430866154}
   explosionRadius: 1
   extraDmg: 5
   explosion: {fileID: 144711366166106617, guid: 7ae4414880a9d164f9887e23fa50bc37,
@@ -28,6 +29,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: explosiveArrow Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 3624394214049616397, guid: a8ba5afd5828b814b8deb4256cbf399e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: acd76b4d44e95cd46b4b10580d14b250,
+        type: 3}
     - target: {fileID: 3624394214049616396, guid: a8ba5afd5828b814b8deb4256cbf399e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -83,12 +90,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3624394214049616397, guid: a8ba5afd5828b814b8deb4256cbf399e,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: acd76b4d44e95cd46b4b10580d14b250,
-        type: 3}
     m_RemovedComponents:
     - {fileID: 2247275504725551662, guid: a8ba5afd5828b814b8deb4256cbf399e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a8ba5afd5828b814b8deb4256cbf399e, type: 3}

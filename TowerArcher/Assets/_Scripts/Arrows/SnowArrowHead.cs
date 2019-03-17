@@ -8,7 +8,11 @@ public class SnowArrowHead : ArrowHead
     public int frezeChance=5;
     [Range(0, 100)]
     public int slowChance = 50;
-    public int duration = 5;
+    public int slowDuration = 5;
+    
+    public int frezeDuration = 5;
+
+   
 
     protected override void OnCollisionEnter2D(Collision2D collision)
     {
@@ -20,11 +24,11 @@ public class SnowArrowHead : ArrowHead
             int rand = Random.Range(1, 100);
             if(rand < slowChance)
             {
-                freezable.SlownDown(duration);
+                freezable.SlownDown(slowDuration);
             }
             if(rand < frezeChance)
             {
-                freezable.Freze(duration);
+                freezable.Freze(frezeDuration);
             }
 
         }

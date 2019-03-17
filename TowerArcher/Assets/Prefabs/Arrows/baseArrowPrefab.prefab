@@ -146,6 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4c689fe73abefc4bbf3c4d4bdfdde78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  arrowPrefab: {fileID: 3624394214049616400}
 --- !u!96 &6525057872591895492
 TrailRenderer:
   serializedVersion: 2
